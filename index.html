@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caprichos de Cetim | Buquês e Presentes</title>
+    <!-- Fontes elegantes do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Variáveis de Cores */
+        :root {
+            --bg-color: #050505; /* Fundo preto sofisticado */
+            --gold: #D4AF37; /* Dourado elegante */
+            --gold-hover: #b5952f;
+            --text-light: #f4f4f4;
+            --text-muted: #a0a0a0;
+            --card-bg: #111111;
+        }
+
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Botões de Ação */
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--bg-color);
+            padding: 12px 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--gold-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gold);
+            color: var(--bg-color);
+        }
+
+        /* Seção Hero (Capa) */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+        }
+
+        .hero img {
+            max-width: 300px;
+            margin-bottom: 30px;
+            border-radius: 8px; /* Ajuste suave nas bordas da logo */
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Seção Catálogo */
+        .catalogo {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 15px auto 0;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .produto-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        /* Formato Polaroide Vertical */
+        .produto-img-container {
+            width: 100%;
+            aspect-ratio: 3 / 4; /* Proporção vertical */
+            background-color: #222;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .produto-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .produto-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .produto-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .produto-preco {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        /* Seção Contato / Footer */
+        .contato-footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #222;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contato-footer p {
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        .botoes-contato {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        /* Responsividade Celular */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .grid-produtos {
+                gap: 20px;
+            }
+            .botoes-contato {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Capa Principal -->
+    <header class="hero">
+        <!-- Logo referenciada conforme solicitado -->
+        <img src="WhatsApp Image 2026-05-12 at 20.10.18.jpeg" alt="Logo Caprichos de Cetim">
+        
+        <h1>Para momentos inesquecíveis.</h1>
+        <p>Uma surpresa digna para quem você ama. Especialistas em buquês de rosas de cetim e presentes personalizados feitos à mão.</p>
+        <a href="#catalogo" class="btn">Ver Coleção</a>
+    </header>
+
+    <!-- Catálogo de Produtos -->
+    <section id="catalogo" class="catalogo">
+        <h2 class="section-title">Nosso Catálogo</h2>
+        
+        <div class="grid-produtos">
+            
+            <!-- Produto 1 -->
+            <div class="produto-card">
+                <div class="produto-img-container">
+                    <!-- Substitua o src pela foto do seu buquê -->
+                    <span style="color: #555; font-size: 0.8rem;">[Imagem Vertical 3x4]</span>
+                </div>
+                <div class="produto-info">
+                    <h3>Buquê Clássico</h3>
+                    <p class="produto-desc">Rosas de cetim vermelhas com acabamento sofisticado e laço premium.</p>
+                    <div class="produto-preco">R$ 120,00</div>
+                    <a href="https://wa.me/5573981145175?text=Olá,%20gostaria%20de%20encomendar%20o%20Buquê%20Clássico!" target="_blank" class="btn btn-outline">Eu Quero</a>
+                </div>
+            </div>
+
+            <!-- Produto 2 -->
+            <div class="produto-card">
+                <div class="produto-img-container">
+                    <!-- Substitua o src pela foto do seu buquê -->
+                    <span style="color: #555; font-size: 0.8rem;">[Imagem Vertical 3x4]</span>
+                </div>
+                <div class="produto-info">
+                    <h3>Buquê Personalizado</h3>
+                    <p class="produto-desc">Cores à sua escolha, incluindo detalhes com pérolas e brilho.</p>
+                    <div class="produto-preco">R$ 150,00</div>
+                    <a href="https://wa.me/5573981145175?text=Olá,%20gostaria%20de%20encomendar%20um%20Buquê%20Personalizado!" target="_blank" class="btn btn-outline">Eu Quero</a>
+                </div>
+            </div>
+
+            <!-- Produto 3 -->
+            <div class="produto-card">
+                <div class="produto-img-container">
+                    <!-- Substitua o src pela foto do seu presente -->
+                    <span style="color: #555; font-size: 0.8rem;">[Imagem Vertical 3x4]</span>
+                </div>
+                <div class="produto-info">
+                    <h3>Caixa Presente</h3>
+                    <p class="produto-desc">Caixa surpresa contendo arranjo de cetim e espaço para chocolates.</p>
+                    <div class="produto-preco">R$ 180,00</div>
+                    <a href="https://wa.me/5573981145175?text=Olá,%20gostaria%20de%20encomendar%20a%20Caixa%20Presente!" target="_blank" class="btn btn-outline">Eu Quero</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Rodapé e Contatos -->
+    <footer class="contato-footer">
+        <h2 class="section-title">Faça sua Encomenda</h2>
+        <p>Personalizamos o seu presente com todo o cuidado. Entre em contato conosco!</p>
+        
+        <div class="botoes-contato">
+            <a href="https://wa.me/5573981145175" target="_blank" class="btn">
+                Falar no WhatsApp
+            </a>
+            <a href="https://instagram.com/caprichos_de_cetim" target="_blank" class="btn btn-outline">
+                Ver Instagram
+            </a>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 Caprichos de Cetim. Todos os direitos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
